@@ -131,7 +131,7 @@ If you want to remove all custom artwork and start over, repeat step 2.
 ```shell
 ./04_optional_strings_unpack
 ```
-This will open a huge list of choices where you can select either all languages or just certain ones, after which the languages will be unpacked along the path `./Languages/SilverDB."lang".LE`. Open this directory and find the `Str .yaml` file there and open it in your favorite text editor (or one that supports yaml files). You may edit values after `!String ` as you see fit. Unless you're trying to hide a label, the space character between `!String` and the translation is required.
+This will open a huge list of choices where you can select either all languages or just certain ones, after which the languages will be unpacked along the path `path/to/ipod_theme/Languages/SilverDB."lang".LE`. Open this directory and find the `Str .yaml` file there and open it in your favorite text editor (or one that supports yaml files). You may edit values after `!String ` as you see fit. Unless you're trying to hide a label, the space character between `!String` and the translation is required.
 
 To change app labels on the Home Screen, use Command+F to find the second instance of `Music`. This is where app label translations begin. You can change or delete `Music` from the line, and repeat the same for other app names.
 
