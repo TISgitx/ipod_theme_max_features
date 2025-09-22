@@ -2,7 +2,7 @@
 Theme your iPod nano 7th and 6th generation with custom icons, wallpapers, clock faces, change or hide labels, apply custom font, and more. Based on [ipod_sun](https://github.com/CUB3D/ipod_sun), [ipodhax](https://github.com/760ceb3b9c0ba4872cadf3ce35a7a494/ipodhax), and [silverutil](https://github.com/spotlightishere/silverutil), who collectively made 99.9% of the research and code to get us here.
 
 This fork aims to make this utility with maximum functionality
-* [ ] Support for modding all languages
+* [x] Support for modding all languages
 * [ ] Support for changing sounds
 * [ ] Support for a new way to run iPod with modified resources
 
@@ -131,7 +131,7 @@ If you want to remove all custom artwork and start over, repeat step 2.
 ```shell
 ./04_optional_strings_unpack
 ```
-This unpacks and opens English (UK) translations in the default text editor. You may edit values after `!String ` as you see fit. Unless you're trying to hide a label, the space character between `!String` and the translation is required.
+This will open a huge list of choices where you can select either all languages or just certain ones, after which the languages will be unpacked along the path ./Languages/SilverDB."lang".LE. Open this directory and find the Str .yaml file there. You may edit values after `!String ` as you see fit. Unless you're trying to hide a label, the space character between `!String` and the translation is required.
 
 To change app labels on the Home Screen, use Command+F to find the second instance of `Music`. This is where app label translations begin. You can change or delete `Music` from the line, and repeat the same for other app names.
 
@@ -142,7 +142,7 @@ Once you're done, save your changes and run:
 ```shell
 ./05_optional_strings_pack
 ```
-This packs your custom translations into `SilverDB.en_GB.LE.bin2`, which automatically gets used in step 6.
+This packs your custom translations into `SilverDB."lang".LE.bin2` packs, which automatically gets used in step 6.
 
 #### 5) Apply custom font (optional):
 
@@ -209,7 +209,7 @@ On macOS, press `Command`+`Shift`+`.` to show hidden files. On Linux, press `Ctr
 
 Select your iPod in the sidebar of Finder or iTunes. If you are running Linux, you can use a Windows virtual machine and connect your iPod to the virtual machine. Hold down the Option key (Mac), or Shift key (Windows) and click Check for Update, then choose the repacked custom ipsw firmware from step 6.
 
-After your iPod finishes updating, you should see your custom artwork. To see your custom translations or hidden app labels, open Settings > General > Language > English (UK) > Save.
+After your iPod finishes updating, you should see your custom artwork. To see your custom translations or hidden app labels, open Settings > General > Language > Select any language you have edited > Save.
 
 Note: When running custom themed firmware, iPod nano 6th generation may forget song ratings, playlist edits, or changed settings after reboot. To work around this, perform step 9, make your changes, then step 7 again. This doesn't affect iPod nano 7th generation.
 
