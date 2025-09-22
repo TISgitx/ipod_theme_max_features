@@ -142,7 +142,7 @@ Once you're done, save your changes and run:
 ```shell
 ./05_optional_strings_pack
 ```
-This packs your custom translations into `SilverDB."lang".LE.bin2` packs, which automatically gets used in step 6.
+This will show a list of your unpacked languages, you can select all or just some, after that this script packs your custom translations into `SilverDB."lang".LE.bin2` packs, which automatically gets used in step 6.
 
 #### 5) Apply custom font (optional):
 
