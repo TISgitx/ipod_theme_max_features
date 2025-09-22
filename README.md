@@ -1,4 +1,4 @@
-# ipod_theme
+# ipod_theme_max_features
 Theme your iPod nano 7th and 6th generation with custom icons, wallpapers, clock faces, change or hide labels, apply custom font, and more. Based on [ipod_sun](https://github.com/CUB3D/ipod_sun), [ipodhax](https://github.com/760ceb3b9c0ba4872cadf3ce35a7a494/ipodhax), and [silverutil](https://github.com/spotlightishere/silverutil), who collectively made 99.9% of the research and code to get us here.
 
 This fork aims to make this utility with maximum functionality
@@ -131,7 +131,7 @@ If you want to remove all custom artwork and start over, repeat step 2.
 ```shell
 ./04_optional_strings_unpack
 ```
-This will open a huge list of choices where you can select either all languages or just certain ones, after which the languages will be unpacked along the path ./Languages/SilverDB."lang".LE. Open this directory and find the Str .yaml file there. You may edit values after `!String ` as you see fit. Unless you're trying to hide a label, the space character between `!String` and the translation is required.
+This will open a huge list of choices where you can select either all languages or just certain ones, after which the languages will be unpacked along the path `./Languages/SilverDB."lang".LE`. Open this directory and find the `Str .yaml` file there and open it in your favorite text editor (or one that supports yaml files). You may edit values after `!String ` as you see fit. Unless you're trying to hide a label, the space character between `!String` and the translation is required.
 
 To change app labels on the Home Screen, use Command+F to find the second instance of `Music`. This is where app label translations begin. You can change or delete `Music` from the line, and repeat the same for other app names.
 
