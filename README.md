@@ -4,7 +4,7 @@ Theme your iPod nano 7th and 6th generation with custom icons, wallpapers, clock
 This fork aims to make this utility with maximum functionality
 * [x] Support for modding all languages
 * [x] Support for changing sounds
-* [x] Support for a new way to run iPod with modified resources(only for nano 7 iPods, not tested on nano 6, there are also doubts about nano 7 2015)
+* [x] Support for a new way to run iPod with modified resources(only for nano 7 iPods, not tested on nano 6)
 
 Join [iPod nano 6/7 Themes discord server](https://discord.gg/SfWYYPUAEZ) to share and download pre-made themes, and [iPod nano hacking discord server](https://discord.gg/7PnGEXjW3X) for hacking iPod nano, then share your themes and setup with [r/ipod](https://www.reddit.com/r/ipod/)!
 
