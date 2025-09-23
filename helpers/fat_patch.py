@@ -9,6 +9,7 @@ import os
 
 fat = PyFatFS.PyFatFS("./rsrc.bin", read_only=False)
 print(fat.listdir('/Resources/UI'))
+print(fat.listdir('/Resources/Sounds'))
 
 FONT_BASE = "/Resources/Fonts/"
 IMAGE_BASE = "/Resources/UI/SilverImagesDB.LE.bin"
@@ -51,6 +52,61 @@ LANG_FILES = [
     "SilverDB.zh_TW.LE",
 ]
 
+sounds_list = [
+    "Alarm.m4a",
+    "Ascending.m4a",
+    "Bark.m4a",
+    "Bell Tower.m4a",
+    "bleep_context.wav",
+    "Blues.m4a",
+    "Boing.m4a",
+    "camera.wav",
+    "clicker.wav",
+    "Crickets.m4a",
+    "criticalbattery.wav",
+    "Digital.m4a",
+    "Doorbell.m4a",
+    "Duck.m4a",
+    "Harp.m4a",
+    "marimba.m4a",
+    "Motorcycle.m4a",
+    "Old Car Horn.m4a",
+    "Old Phone.m4a",
+    "Piano Riff.m4a",
+    "Pinball.m4a",
+    "Robot.m4a",
+    "Sci-Fi.m4a",
+    "shake.wav",
+    "Simon_Note01.wav",
+    "Simon_Note02.wav",
+    "Simon_Note03.wav",
+    "Simon_Note04.wav",
+    "Sonar.m4a",
+    "Strum.m4a",
+    "Timba.m4a",
+    "Time Passing.m4a",
+    "Trill.m4a",
+    "VoiceOver_Alert.wav",
+    "VoiceOver_BubbleAppear.wav",
+    "VoiceOver_BubbleDisappear.wav",
+    "VoiceOver_ContainerTouch.wav",
+    "VoiceOver_Drill.wav",
+    "VoiceOver_DrillOut.wav",
+    "VoiceOver_ElementBorder.wav",
+    "VoiceOver_ElementCenter.wav",
+    "VoiceOver_EmptySpace.wav",
+    "VoiceOver_PopupAppeared.wav",
+    "VoiceOver_Reorder.wav",
+    "VoiceOver_ScreenChange.wav",
+    "VoiceOver_ScrollPage.wav",
+    "VoiceOver_Select.wav",
+    "VoiceOver_WrapBack.wav",
+    "VoiceOver_WrapBoundary.wav",
+    "VoiceOver_WrapForward.wav",
+    "volumebeep.wav",
+    "Xylophone.m4a",
+]
+
 # --- Export SilverImagesDB ---
 with fat.openbin(IMAGE_BASE, mode="rb") as b:
     with open("./SilverImagesDB.LE.bin", 'wb') as out:
@@ -65,6 +121,20 @@ for lang in LANG_FILES:
     with fat.openbin(fs_path, mode="rb") as b:
         with open(local_path, "wb") as out:
             out.write(b.read())
+
+# --- Export Sounds ---
+os.makedirs("./Sounds", exist_ok=True)
+
+for sound in sounds_list:
+    fs_path = f"/Resources/Sounds/{sound}"
+    local_path = f"./Sounds/{sound}"
+    try:
+        with fat.openbin(fs_path, mode="rb") as b:
+            with open(local_path, "wb") as out:
+                out.write(b.read())
+        print(f"Extracted {sound}")
+    except Exception as e:
+        print(f"Error extracting {sound}: {e}")
 
 # --- Replace fonts ---
 for root, dirs, files in os.walk("./Fonts"):
@@ -112,5 +182,17 @@ for lang in LANG_FILES:
             b.write(local_file.read())
     else:
         print(f"Re-packed {lang}.bin2 doesn't exist yet, extraction only")
+        
+# --- Repack Sounds ---
+for sound in sounds_list:
+    local_new = f"./Sounds/{sound}.new"
+    fs_path = f"/Resources/Sounds/{sound}"
+    if os.path.exists(local_new):
+        fat.remove(fs_path)
+        with fat.openbin(fs_path, mode="wb") as b, open(local_new, "rb") as local_file:
+            b.write(local_file.read())
+        print(f"Replaced {sound}")
+    else:
+        print(f"No replacement for {sound}, keeping original")
 
 fat.close()
