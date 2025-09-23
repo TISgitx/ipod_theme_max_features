@@ -126,7 +126,7 @@ If it fails, the failing artwork is the one after the last successful artwork. C
 
 If you want to remove all custom artwork and start over, repeat step 2.
 
-#### 4) Unpack and repack English (UK) translations (optional):
+#### 4) Unpack and repack translations (optional):
 
 ```shell
 ./04_optional_strings_unpack
