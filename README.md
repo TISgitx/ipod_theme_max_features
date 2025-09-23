@@ -4,7 +4,7 @@ Theme your iPod nano 7th and 6th generation with custom icons, wallpapers, clock
 This fork aims to make this utility with maximum functionality
 * [x] Support for modding all languages
 * [x] Support for changing sounds
-* [ ] Support for a new way to run iPod with modified resources
+* [x] Support for a new way to run iPod with modified resources(only for nano 7 iPods, not tested on nano 6, there are also doubts about nano 7 2015)
 
 Join [iPod nano 6/7 Themes discord server](https://discord.gg/SfWYYPUAEZ) to share and download pre-made themes, and [iPod nano hacking discord server](https://discord.gg/7PnGEXjW3X) for hacking iPod nano, then share your themes and setup with [r/ipod](https://www.reddit.com/r/ipod/)!
 
@@ -216,14 +216,12 @@ After your iPod finishes updating, you should see your custom artwork. To see yo
 
 Note: When running custom themed firmware, iPod nano 6th generation may forget song ratings, playlist edits, or changed settings after reboot. To work around this, perform step 9, make your changes, then step 7 again. This doesn't affect iPod nano 7th generation.
 
-#### 9) If your iPod shows "OK to disconnect" in black and white:
+#### 9) If your iPod shows "OK to disconnect" in black and white(Only relevant for iPod nano 6 owners):
 If you restart your iPod, or if your iPod battery dies, it will boot into disk mode, showing "OK to disconnect" in black and white. This is expected for custom iPod nano firmware, because it relies on swapping regular OS and disk mode to work.
 
 For iPod nano 7th generation:
 
-- Press and hold both the Home button and the power button until you see the Apple logo.
-- Once you see the Apple logo, immediately release the Home button and the power button.
-- Then immediately press and hold both volume up and volume down buttons, until your see the Home Screen.
+- The problem is not relevant due to the new modification method
 
 For iPod nano 6th generation:
 
