@@ -3,7 +3,7 @@ Theme your iPod nano 7th and 6th generation with custom icons, wallpapers, clock
 
 This fork aims to make this utility with maximum functionality
 * [x] Support for modding all languages
-* [ ] Support for changing sounds
+* [x] Support for changing sounds
 * [ ] Support for a new way to run iPod with modified resources
 
 Join [iPod nano 6/7 Themes discord server](https://discord.gg/SfWYYPUAEZ) to share and download pre-made themes, and [iPod nano hacking discord server](https://discord.gg/7PnGEXjW3X) for hacking iPod nano, then share your themes and setup with [r/ipod](https://www.reddit.com/r/ipod/)!
@@ -166,7 +166,10 @@ Copy `Helvetica.ttf` and `HelveticaBold.ttf` into the `Fonts` folder.
 
 Tip: Not all fonts are compatible with iPod nano. If your iPod fails to boot after applying a custom font, try a different font, or remove your custom fonts from the `Fonts` folder.
 
-#### 6) Repack iPod firmware:
+#### 6) Replacing sounds:
+When unpacking, a `Sounds` folder should appear in the folder. Open it and look through all the sounds. To replace a specific sound, select any sound you want to replace (it must match the extension of the original file, if it doesn't match, convert it) and add the `.new` extension to the file, after which the sound will be automatically used during packing
+
+#### 7) Repack iPod firmware:
 
 - For iPod nano 7th generation, run:
 
@@ -201,7 +204,7 @@ open .
 explorer.exe .
 ```
 
-#### 7) Flash custom firmware:
+#### 8) Flash custom firmware:
 
 Connect your iPod to your computer. Before flashing custom firmware, back up your iPod. On macOS or Linux, double click the iPod icon on your Desktop to open it as a disk. On Windows, open File Explorer and double click your iPod.
 
@@ -213,7 +216,7 @@ After your iPod finishes updating, you should see your custom artwork. To see yo
 
 Note: When running custom themed firmware, iPod nano 6th generation may forget song ratings, playlist edits, or changed settings after reboot. To work around this, perform step 9, make your changes, then step 7 again. This doesn't affect iPod nano 7th generation.
 
-#### 8) If your iPod shows "OK to disconnect" in black and white:
+#### 9) If your iPod shows "OK to disconnect" in black and white:
 If you restart your iPod, or if your iPod battery dies, it will boot into disk mode, showing "OK to disconnect" in black and white. This is expected for custom iPod nano firmware, because it relies on swapping regular OS and disk mode to work.
 
 For iPod nano 7th generation:
@@ -228,7 +231,7 @@ For iPod nano 6th generation:
 - Once you see the Apple logo, immediately release the power button.
 - Then immediately press and hold both volume down and volume up buttons, until your see the Home Screen.
 
-#### 9) Go back to stock firmware:
+#### 10) Go back to stock firmware:
 You can go back to stock firmware while preserving data. First download the stock firmware for your iPod:
 
 - [iPod nano 7th generation (2015)](https://secure-appldnld.apple.com/ipod/sbml/osx/bundles/031-59796-20160525-8E6A5D46-21FF-11E6-89D1-C5D3662719FC/iPod_1.1.2_39A10023.ipsw)
@@ -239,7 +242,7 @@ Select your iPod in the sidebar of Finder or iTunes. Hold down the Option key (M
 
 Note: For iPod nano 7th generation (2012), you need to "update" from custom 1.1.2 firmware to stock 1.0.4 firmware. This is safe, you won't lose data or encounter functional issues.
 
-#### 10) If your iPod doesn't boot at all, or shows a "Connect to iTunes" Recovery screen:
+#### 11) If your iPod doesn't boot at all, or shows a "Connect to iTunes" Recovery screen:
 - Connect your iPod to a Windows PC or older Mac running macOS Mojave (10.14) or earlier. This also works if you use a Windows virtual machine on Linux, as long as you connect your iPod to the virtual machine.
 - Open iTunes on your Windows PC or older Mac.
 - For iPod nano 7th generation, press and hold both the Home button and the power button until iTunes detects it in DFU mode.
