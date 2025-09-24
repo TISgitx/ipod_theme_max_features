@@ -6,51 +6,16 @@ import base64
 import io
 import sys
 import os
+import re
 
 fat = PyFatFS.PyFatFS("./rsrc.bin", read_only=False)
 print(fat.listdir('/Resources/UI'))
 print(fat.listdir('/Resources/Sounds'))
+print(fat.listdir('/Resources/DST'))
 
 FONT_BASE = "/Resources/Fonts/"
 IMAGE_BASE = "/Resources/UI/SilverImagesDB.LE.bin"
-
-# List of all languages (without .bin/.bin2 for convenience)
-LANG_FILES = [
-    "SilverDB.ar_SA.LE",
-    "SilverDB.ca_ES.LE",
-    "SilverDB.cs_CZ.LE",
-    "SilverDB.da_DK.LE",
-    "SilverDB.de_DE.LE",
-    "SilverDB.el_GR.LE",
-    "SilverDB.en_GB.LE",
-    "SilverDB.es_ES.LE",
-    "SilverDB.fi_FI.LE",
-    "SilverDB.fr_FR.LE",
-    "SilverDB.he_IL.LE",
-    "SilverDB.hr_HR.LE",
-    "SilverDB.hu_HU.LE",
-    "SilverDB.id_ID.LE",
-    "SilverDB.it_IT.LE",
-    "SilverDB.ja_JP.LE",
-    "SilverDB.ko_KR.LE",
-    "SilverDB.ms_MY.LE",
-    "SilverDB.nl_NL.LE",
-    "SilverDB.no_NO.LE",
-    "SilverDB.pl_PL.LE",
-    "SilverDB.pt_BR.LE",
-    "SilverDB.pt_PT.LE",
-    "SilverDB.ro_RO.LE",
-    "SilverDB.ru_RU.LE",
-    "SilverDB.sk_SK.LE",
-    "SilverDB.sv_SE.LE",
-    "SilverDB.th_TH.LE",
-    "SilverDB.tr_TR.LE",
-    "SilverDB.uk_UA.LE",
-    "SilverDB.vi_VN.LE",
-    "SilverDB.zh_CN.LE",
-    "SilverDB.zh_HK.LE",
-    "SilverDB.zh_TW.LE",
-]
+TZDATA_BASE = "/Resources/DST/iPodTZData.dat"
 
 sounds_list = [
     "Alarm.m4a",
@@ -107,12 +72,38 @@ sounds_list = [
     "Xylophone.m4a",
 ]
 
+def discover_langs_from_fat(fat):
+#We search /Resources/UI for all SilverDB.*.bin files and return the base names without .bin
+    try:
+        entries = fat.listdir('/Resources/UI')
+    except Exception:
+        return []
+    langs = []
+    pattern = re.compile(r"^SilverDB\.([A-Za-z0-9_]+)\.LE\.bin$")
+    for name in entries:
+        m = pattern.match(name)
+        if m:
+            langs.append(f"SilverDB.{m.group(1)}.LE")
+    return langs
+
 # --- Export SilverImagesDB ---
 with fat.openbin(IMAGE_BASE, mode="rb") as b:
     with open("./SilverImagesDB.LE.bin", 'wb') as out:
         out.write(b.read())
 
+# --- Export TimeZoneData ---
+with fat.openbin(TZDATA_BASE, mode="rb") as b:
+    with open("./iPodTZData.dat", 'wb') as out:
+        out.write(b.read())
+
 # --- Export all SilverDB langs ---
+LANG_FILES = discover_langs_from_fat(fat)
+
+# Remove duplicates and sort for stability.
+LANG_FILES = sorted(list(dict.fromkeys(LANG_FILES)))
+
+print("Languages to process:", LANG_FILES)
+
 os.makedirs("./Languages", exist_ok=True)
 
 for lang in LANG_FILES:
@@ -196,3 +187,4 @@ for sound in sounds_list:
         print(f"No replacement for {sound}, keeping original")
 
 fat.close()
+            
