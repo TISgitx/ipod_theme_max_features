@@ -5,6 +5,7 @@ This fork aims to make this utility with maximum functionality
 * [x] Support for modding all languages
 * [x] Support for changing sounds
 * [x] Support for a new way to run iPod with modified resources(only for nano 7 iPods, not tested on nano 6)
+* [ ] Apply the capabilities we have with `star` exploit(maximum)
 
 Join [iPod nano 6/7 Themes discord server](https://discord.gg/SfWYYPUAEZ) to share and download pre-made themes, and [iPod nano hacking discord server](https://discord.gg/7PnGEXjW3X) for hacking iPod nano, then share your themes and setup with [r/ipod](https://www.reddit.com/r/ipod/)!
 
